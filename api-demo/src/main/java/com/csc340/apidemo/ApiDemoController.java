@@ -42,7 +42,7 @@ public class ApiDemoController {
             String url = "https://opentdb.com/api.php?amount=1&type=multiple&difficulty=" + difficulty;
             String jsonWordInfo = restTemplate.getForObject(url, String.class);
             JsonNode root = mapper.readTree(jsonWordInfo);
-
+            System.out.println(root);
             String question = root.get("results").get(0).get("question").asText();
             return question;
 
